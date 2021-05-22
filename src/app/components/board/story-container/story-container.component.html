@@ -1,0 +1,12 @@
+
+  <div class="kanban-container">
+    <h4 class="card-title">Done</h4>
+    <div class="card-body" style="width: 100%;">
+      <div cdkDropList [cdkDropListData]="storyList" [cdkDropListConnectedTo]="allowedList"
+        class="kanban-list" (cdkDropListDropped)="drop($event, listId)" [id]="listId">
+        <div class="kanban-box" *ngFor="let story of storyList" cdkDrag [cdkDragData]="story">
+          <story-card [story]="story" (refresh)="refresh.emit()" style="width: 100%;"></story-card>
+        </div>
+      </div>
+    </div>
+  </div>

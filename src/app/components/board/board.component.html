@@ -1,0 +1,11 @@
+<div class="main">
+<div style="display: flex; margin: 16px 64px 0 64px;">
+  <story-container listId="todo" [storyList]="todoList" [boardId]="id" (refresh)="refreshBoard()" [allowedList]="['progress']"></story-container>
+  <story-container listId="progress" [storyList]="progressList" [boardId]="id" (refresh)="refreshBoard()" [allowedList]="['todo','review']"></story-container>
+  <story-container listId="review" [storyList]="reviewList" [boardId]="id" (refresh)="refreshBoard()" [allowedList]="['todo','progress','done']"></story-container>
+  <story-container listId="done" [storyList]="doneList" [boardId]="id" (refresh)="refreshBoard()" [allowedList]="['todo']"></story-container>
+</div>
+<button mat-fab class="fab-bottom" aria-label="Start Quiz" (click)="newStory()">
+    <mat-icon>add</mat-icon>
+</button>
+</div>
