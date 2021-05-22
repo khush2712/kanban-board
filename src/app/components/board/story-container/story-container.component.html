@@ -1,6 +1,6 @@
 
   <div class="kanban-container">
-    <h4 class="card-title">Done</h4>
+    <h4 class="card-title">{{ listId | titlecase }}</h4>
     <div class="card-body" style="width: 100%;">
       <div cdkDropList [cdkDropListData]="storyList" [cdkDropListConnectedTo]="allowedList"
         class="kanban-list" (cdkDropListDropped)="drop($event, listId)" [id]="listId">
