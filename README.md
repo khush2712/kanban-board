@@ -1,27 +1,58 @@
-# Kanban
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.0.
+# Kanban Board
+## Technologies Used
+- Node.js v16.0.0
+- NPM 7.10.0
+- Angular 12.0.0
+- Styling Library - [Angular Material](https://material.angular.io/)
 
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## APIs
+- [Kanban Board API](https://parikshan2.friadd.in/)
+  Developed and hosted. Not publicly available
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Structure
+### Routes
+- **Projects (*default*)** - Projects/Boards list.
+![Projects](screenshots/projects.png?raw=true "Projects")
+- **Board** - Shows tasks/stories for board. Add or edit tasks/stories
+![Board](screenshots/board.png?raw=true "Board")
+![Add Board](screenshots/add_edit_task.png?raw=true "Add Board")
 
-## Build
+### Components
+#### 1. Projects - Projects/Boards list.
+- Table shows current projects and boards.
+- Add new project from top form.
+- Select project to open it's board.
+#### 2. Board - Tasks/stories list
+- Kanban board of tasks/stories
+- Drag and Drop between status to change
+- Add new task/story
+- Edit task/story by button near task/story card
+#### 3. Story Container
+- Container of story for particular status.
+- Can be used multiple time if there is need of new status
+#### 4. Story Card
+- Task or Story card is to represent task/story.
+- Button to edit that task/story.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### Service
+#### Board Service
+- Get list of boards or projects.
+- Create new board or project.
+- Get tasks/stories list.
+- Create task/story.
+- Update task/story.
+- Update status of task/story.
 
-## Running unit tests
+### Observable
+- Observable are used for API calls
+  - [getBoardList](src/app/services/board.service.ts#L18-L23)
+  - [getStoryList](src/app/services/board.service.ts#L29-L38)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Pipe
+- To show story title in title case [Link](src/app/components/board/story-card/story-card.component.html#L2)
+- To show status text in title case [Link](src/app/components/board/story-container/story-container.component.html#L3)
+- To show project name in title case [Link](src/app/components/projects/projects.component.html#L16)
